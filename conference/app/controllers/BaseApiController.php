@@ -19,6 +19,24 @@ class BaseApiController extends Controller
 	}
 
 	/**
+	 * @param int $count
+	 * @param mixed $data
+	 * @param int $code
+	 * @return mixed
+	 */
+	public function responseWithCount($count, $data, $code = 200)
+	{
+		$response = array(
+			'meta' => array(
+				'code' => $code
+			),
+			'count'    => $count,
+			'response' => $data,
+		);
+		return Response::json($response);
+	}
+
+	/**
 	 * @param string $message
 	 * @param int $code
 	 * @param string $type
