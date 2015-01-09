@@ -1,0 +1,27 @@
+{
+  "name": "Hackathon2015",
+  "version": "0.1.0",
+  "homepage": "http://hackathon.local",
+  "authors": [
+    "kisPocok <david.schneidhoffer@gmail.com>"
+  ],
+  "description": "Simple Site",
+  "main": "public/app/css/site.css",
+  "dependencies": {
+    "jquery": "2.*",
+    "bootstrap": "3.*"
+  },
+  "moduleType": [
+    "amd"
+  ],
+  "license": "WTF",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "public/packages",
+    "public/node_modules",
+    "public/bower_components",
+    "test",
+    "tests"
+  ]
+}
