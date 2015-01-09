@@ -3,7 +3,7 @@
 use App\Repositories\RedirectRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class MetaController extends BaseApiController
+class PresenterController extends BaseApiController
 {
 	/**
 	 * Instantiate a new UserController instance.
@@ -17,10 +17,10 @@ class MetaController extends BaseApiController
 	public function get($id)
 	{
 		try {
-			$data = Meta::findOrFail($id);
+			$data = Presenter::findOrFail($id);
 			return $this->response($data->toArray());
 		} catch (ModelNotFoundException $e) {
-			return $this->fail('Value ' . $id . ' is invalid for meta id');
+			return $this->fail('Value ' . $id . ' is invalid for presenter id');
 		} catch (\Exception $e) {
 			return $this->fail('Error happened', 500);
 		}

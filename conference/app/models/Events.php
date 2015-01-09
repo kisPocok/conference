@@ -1,13 +1,13 @@
 <?php
 
-class Meta extends Eloquent
+class Events extends Eloquent
 {
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'meta';
+	protected $table = 'event';
 
 	/**
 	 * This attributes may not be mass assigned.
@@ -32,12 +32,16 @@ class Meta extends Eloquent
 		$startTime = strtotime($this->start_date);
 		$endTime = strtotime($this->end_date);
 		return array(
-			'title'              => $this->title,
-			'backgroundImageUrl' => $this->background_image_url,
-			'colorSchema'        => $this->color_schema,
-			'startDateTime'      => $startTime,
-			'endDateTime'        => $endTime,
-			'lengthInSeconds'    => $endTime - $startTime,
+			'metaId'            => $this->meta_id,
+			'title'             => $this->title,
+			'description'       => $this->description,
+			'imageUrl'          => $this->image_url,
+			'location'          => $this->location,
+			'presenter'         => $this->presenter,
+			'videoId'           => $this->video_id,
+			'startDateTime'     => $startTime,
+			'endDateTime'       => $endTime,
+			'lengthInSeconds'   => $endTime - $startTime,
 		);
 	}
 }

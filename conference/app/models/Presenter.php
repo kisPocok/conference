@@ -1,13 +1,13 @@
 <?php
 
-class Meta extends Eloquent
+class Presenter extends Eloquent
 {
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'meta';
+	protected $table = 'presenter';
 
 	/**
 	 * This attributes may not be mass assigned.
@@ -29,15 +29,14 @@ class Meta extends Eloquent
 	 */
 	public function toArray()
 	{
-		$startTime = strtotime($this->start_date);
-		$endTime = strtotime($this->end_date);
 		return array(
-			'title'              => $this->title,
-			'backgroundImageUrl' => $this->background_image_url,
-			'colorSchema'        => $this->color_schema,
-			'startDateTime'      => $startTime,
-			'endDateTime'        => $endTime,
-			'lengthInSeconds'    => $endTime - $startTime,
+			'name'                => $this->name,
+			'description'         => $this->description,
+			'imageUrl'            => $this->image_url,
+			'organization'        => $this->organization,
+			'twitterAccountName'  => $this->twitter_account,
+			'facebookAccountName' => $this->facebook_account,
+			'homepage'            => $this->homepage,
 		);
 	}
 }

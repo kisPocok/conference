@@ -1,7 +1,6 @@
 <?php
 
 use App\Repositories\RedirectRepository;
-use App\Repositories\UserRepository;
 
 class HomeController extends BaseController {
 
