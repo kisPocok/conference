@@ -3,7 +3,7 @@
 use App\Repositories\RedirectRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class LocationController extends BaseApiController
+class MapController extends BaseApiController
 {
 	/**
 	 * Instantiate a new UserController instance.
@@ -21,7 +21,7 @@ class LocationController extends BaseApiController
 	public function get($id)
 	{
 		try {
-			$data = Location::findOrFail($id);
+			$data = Map::findOrFail($id);
 			return $this->response($data->toArray());
 		} catch (ModelNotFoundException $e) {
 			return $this->fail('Value ' . $id . ' is invalid for location id');
@@ -37,7 +37,7 @@ class LocationController extends BaseApiController
 	public function getByConference($id)
 	{
 		try {
-			$list = Location::where('conference_id', '=', $id);
+			$list = Map::where('conference_id', '=', $id);
 			$data = array();
 			foreach ($list->get() as $model) {
 				$data[] = $model->toArray();
