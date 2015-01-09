@@ -22,7 +22,7 @@ class CreateMetaTable extends Migration {
 			$table->increments('id');
 			$table->string('title', 255);
 			$table->string('background_image_url', 255)->nullable();
-			$table->string('color_scheme', 10)->default('light');
+			$table->string('color_schema', 10)->default('light');
 			$table->dateTime('start_date');
 			$table->dateTime('end_date');
 			$table->timestamps();

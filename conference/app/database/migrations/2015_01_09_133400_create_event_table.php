@@ -20,6 +20,7 @@ class CreateEventTable extends Migration {
 		Schema::create('event', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('meta_id');
 			$table->string('title', 255);
 			$table->text('description')->nullable();
 			$table->string('image_url', 255)->nullable();
@@ -30,6 +31,7 @@ class CreateEventTable extends Migration {
 			$table->dateTime('end_date');
 			$table->timestamps();
 
+			$table->index('meta_id');
 			$table->index('title');
 			$table->index('location');
 			$table->index('presenter');

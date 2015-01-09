@@ -1,7 +1,6 @@
 <?php
 
-
-class Meta extends Eloquent
+class Meta extends Eloquent implements ApiItem
 {
 	/**
 	 * The database table used by the model.
@@ -23,5 +22,22 @@ class Meta extends Eloquent
 	 *
 	 * @var array
 	 */
-	protected $hidden = array();
+	protected $hidden = array('created_at', 'updated_at');
+
+	/**
+	 * @return array
+	 */
+	public function toArray()
+	{
+		$startTime = strtotime($this->start_date);
+		$endTime = strtotime($this->end_date);
+		return array(
+			'title'              => $this->title,
+			'backgroundImageUrl' => $this->background_image_url,
+			'colorSchema'        => $this->color_schema,
+			'startDateTime'      => $startTime,
+			'endDateTime'        => $endTime,
+			'lengthInSeconds'    => $endTime - $startTime,
+		);
+	}
 }

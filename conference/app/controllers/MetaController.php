@@ -2,8 +2,9 @@
 
 use App\Repositories\RedirectRepository;
 use App\Repositories\UserRepository;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class MetaController extends BaseController {
+class MetaController extends BaseApiController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -27,8 +28,15 @@ class MetaController extends BaseController {
 		$this->redirect = $redirect;
 	}
 
-	public function get()
+	public function get($id)
 	{
-		return Response::json(array('name' => 'Steve', 'state' => 'CA'));
+		try {
+			$data = Meta::findOrFail($id);
+			return $this->response($data->toArray());
+		} catch (ModelNotFoundException $e) {
+			return $this->fail('Value ' . $id . ' is invalid for meta id');
+		} catch (\Exception $e) {
+			return $this->fail('Error happened', 500);
+		}
 	}
 }

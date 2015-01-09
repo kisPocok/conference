@@ -6,8 +6,8 @@
  * $ php artisan db:seed
  * $ php artisan db:seed --class
  */
-class DatabaseSeeder extends Seeder {
-
+class DatabaseSeeder extends Seeder
+{
 	/**
 	 * Run the database seeds.
 	 *
@@ -20,13 +20,19 @@ class DatabaseSeeder extends Seeder {
 	}
 }
 
-class MetaTableSeeder extends Seeder {
-
+class MetaTableSeeder extends Seeder
+{
 	public function run()
 	{
 		DB::table('meta')->delete();
-		User::create(array('id' => 1, 'email' => 'admin@local.dev'));
-		User::create(array('id' => 2, 'email' => 'david@local.dev'));
+		$sampleData = array(
+			'id' => 1,
+			'title' => 'Craft-Conf',
+			'background_image_url' => null,
+			'color_schema' => 'light',
+			'start_date' => date("Y-m-d H:i:s", strtotime('NOW +1 HOURS')),
+			'end_date' => date("Y-m-d H:i:s", strtotime('NOW +7 HOURS'))
+		);
+		Meta::create($sampleData);
 	}
-
 }
