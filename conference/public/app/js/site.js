@@ -1,4 +1,10 @@
 (function() {
     'use strict';
-    console.log ('Conferencé!')
+
+    if ($('#cid').length > 0) {
+        $('#cid').change(function(e) {
+            $('#filterForm').submit();
+        });
+    }
+
 }());

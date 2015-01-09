@@ -11,7 +11,17 @@
 @section('content')
 
     <div class="container">
-        <h1>Event list</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Event list</h1>
+            </div>
+            <div class="col-md-6">
+                <?= Former::open()->method('GET')->id('filterForm') ?>
+                    <?= Former::select('cid')->options($conferences)->label(null)->class('form-control') ?>
+                <?= Former::close() ?>
+            </div>
+        </div>
+
         <table class="table">
             <thead>
                 <tr>
@@ -24,7 +34,7 @@
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($eventList as $model): ?>
+            <?php foreach($list as $model): ?>
                 <tr>
                     <td><?= $model->id ?></td>
                     <td><?= $model->title ?></td>

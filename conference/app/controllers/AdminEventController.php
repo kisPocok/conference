@@ -21,15 +21,24 @@ class AdminEventController extends BaseController
 
 	public function lister()
 	{
+		$cid = (int) Input::get('cid');
+		if (Input::has('cid') && $cid !== 0) {
+			$events = Events::orderBy('id')->where('meta_id', '=', $cid)->get();
+		} else {
+			$events = Events::orderBy('id')->get();
+		}
+
 		$params = array(
-			'eventList' => Events::orderBy('id')->get()
+			'list' => $events,
+			'conferences' => array_merge(array('Show all'), Conference::orderBy('title')->lists('title', 'id'))
 		);
-		return View::make('pages.eventlist', $params);
+		Former::populate(array('cid' => $cid));
+		return View::make('pages.admin.eventlist', $params);
 	}
 
 	public function create()
 	{
-		return View::make('pages.event', $this->getParams());
+		return View::make('pages.admin.event', $this->getParams());
 	}
 
 	/**
@@ -39,7 +48,7 @@ class AdminEventController extends BaseController
 	public function edit($id)
 	{
 		Former::populate(Events::find($id));
-		return View::make('pages.event', $this->getParams($id));
+		return View::make('pages.admin.event', $this->getParams($id));
 	}
 
 	/**
