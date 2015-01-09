@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
 		$this->call('EventTableSeeder');
 		$this->call('PresenterTableSeeder');
 		$this->call('LocationTableSeeder');
+		$this->call('MapTableSeeder');
 	}
 }
 
@@ -139,6 +140,7 @@ class LocationTableSeeder extends Seeder
 		DB::table('location')->delete();
 		$sampleData = array(
 			'id' => 1,
+			'conference_id' => 1,
 			'title' => 'Bálna 1. emelete',
 			'description' => null,
 			'map_image_url' => 'http://www.balnabudapest.hu/map/1em.png',
@@ -148,6 +150,7 @@ class LocationTableSeeder extends Seeder
 
 		$sampleData = array(
 			'id' => 2,
+			'conference_id' => 2,
 			'title' => 'Bálna 2. emelete',
 			'description' => null,
 			'map_image_url' => 'http://www.balnabudapest.hu/map/2em.png',
@@ -157,11 +160,43 @@ class LocationTableSeeder extends Seeder
 
 		$sampleData = array(
 			'id' => 3,
+			'conference_id' => 2,
 			'title' => 'Bálna 3. emelete',
 			'description' => null,
 			'map_image_url' => 'http://www.balnabudapest.hu/map/3em.png',
 			'channel_id' => 200003,
 		);
 		Location::create($sampleData);
+	}
+}
+
+class MapTableSeeder extends Seeder
+{
+	public function run()
+	{
+		DB::table('maps')->delete();
+		$sampleData = array(
+			'id' => 1,
+			'conference_id' => 1,
+			'title' => 'Bálna 1. emelete',
+			'map_image_url' => 'http://www.balnabudapest.hu/map/1em.png'
+		);
+		Map::create($sampleData);
+
+		$sampleData = array(
+			'id' => 2,
+			'conference_id' => 2,
+			'title' => 'Bálna 2. emelete',
+			'map_image_url' => 'http://www.balnabudapest.hu/map/2em.png',
+		);
+		Map::create($sampleData);
+
+		$sampleData = array(
+			'id' => 3,
+			'conference_id' => 2,
+			'title' => 'Bálna 3. emelete',
+			'map_image_url' => 'http://www.balnabudapest.hu/map/3em.png',
+		);
+		Map::create($sampleData);
 	}
 }

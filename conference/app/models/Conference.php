@@ -34,6 +34,7 @@ class Conference extends Eloquent
 		return array(
 			'conferenceId'       => $this->id,
 			'title'              => $this->title,
+			'description'        => $this->description,
 			'backgroundImageUrl' => $this->background_image_url,
 			'colorSchema'        => $this->color_schema,
 			'startDateTime'      => $startTime,

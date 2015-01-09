@@ -29,4 +29,22 @@ class LocationController extends BaseApiController
 			return $this->fail('Error happened', 500);
 		}
 	}
+
+	/**
+	 * @param int $id
+	 * @return mixed
+	 */
+	public function getByConference($id)
+	{
+			$list = Location::where('conference_id', '=', $id);
+			$data = array();
+			foreach ($list->get() as $model) {
+				$data[] = $model->toArray();
+			}
+			return $this->responseWithCount($list->count(), $data);
+		try {
+		} catch (\Exception $e) {
+			return $this->fail('Error happened', 500);
+		}
+	}
 }

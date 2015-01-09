@@ -1,13 +1,13 @@
 <?php
 
-class Location extends Eloquent
+class Map extends Eloquent
 {
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'location';
+	protected $table = 'maps';
 
 	/**
 	 * This attributes may not be mass assigned.
@@ -30,12 +30,10 @@ class Location extends Eloquent
 	public function toArray()
 	{
 		return array(
-			'locationId'   => $this->id,
+			'mapId'        => $this->id,
 			'conferenceId' => $this->conference_id,
 			'title'        => $this->title,
-			'description'  => $this->description,
 			'mapImageUrl'  => $this->map_image_url,
-			'channelId'    => $this->channel_id,
 		);
 	}
 }

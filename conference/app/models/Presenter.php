@@ -33,6 +33,7 @@ class Presenter extends Eloquent
 			'presenterId'         => $this->id,
 			'name'                => $this->name,
 			'description'         => $this->description,
+			'title'               => $this->title,
 			'imageUrl'            => $this->image_url,
 			'organization'        => $this->organization,
 			'twitterAccountName'  => $this->twitter_account,

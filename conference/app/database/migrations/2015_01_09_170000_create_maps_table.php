@@ -8,7 +8,7 @@ use Illuminate\Database\Migrations\Migration;
  *
  * $ php artisan migrate:refresh --seed
  */
-class CreateLocationTable extends Migration {
+class CreateMapsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -17,14 +17,12 @@ class CreateLocationTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('location', function(Blueprint $table)
+		Schema::create('maps', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('conference_id');
-			$table->string('title', 255);
-			$table->text('description')->nullable();
+			$table->string('title', 255)->nullable();
 			$table->string('map_image_url', 255)->nullable();
-			$table->integer('channel_id')->nullable();
 			$table->timestamps();
 
 			$table->index('title');
@@ -40,7 +38,7 @@ class CreateLocationTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('location');
+		Schema::drop('maps');
 	}
 
 }

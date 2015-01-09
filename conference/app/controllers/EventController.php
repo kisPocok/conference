@@ -37,12 +37,12 @@ class EventController extends BaseApiController
 	public function getByConference($id)
 	{
 		try {
-			$events = Events::where('meta_id', '=', $id);
+			$list = Events::where('meta_id', '=', $id);
 			$data = array();
-			foreach ($events->get() as $event) {
-				$data[] = $event->toArray();
+			foreach ($list->get() as $model) {
+				$data[] = $model->toArray();
 			}
-			return $this->responseWithCount($events->count(), $data);
+			return $this->responseWithCount($list->count(), $data);
 		} catch (\Exception $e) {
 			return $this->fail('Error happened', 500);
 		}

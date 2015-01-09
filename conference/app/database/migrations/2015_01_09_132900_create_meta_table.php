@@ -21,6 +21,7 @@ class CreateMetaTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('title', 255);
+			$table->text('description')->nullable();
 			$table->string('background_image_url', 255)->nullable();
 			$table->string('color_schema', 10)->default('light');
 			$table->dateTime('start_date');
