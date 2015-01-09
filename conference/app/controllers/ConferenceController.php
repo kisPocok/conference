@@ -3,7 +3,7 @@
 use App\Repositories\RedirectRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class MetaController extends BaseApiController
+class ConferenceController extends BaseApiController
 {
 	/**
 	 * Instantiate a new UserController instance.
