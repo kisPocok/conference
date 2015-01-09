@@ -1,3 +1,1 @@
-<header>
-	<h1>Helló fejléc!</h1>
-</header>
+<header><!-- Ustream Conf --></header>

@@ -1,3 +1,1 @@
-<footer>
-	/exit
-</footer>
+<footer></footer>

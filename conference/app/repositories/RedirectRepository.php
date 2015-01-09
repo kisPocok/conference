@@ -6,23 +6,17 @@ use Illuminate\Support\Facades\Redirect;
 
 class RedirectRepository
 {
-	public function toIndex()
+	/**
+	 * @param int $id
+	 * @return mixed
+	 */
+	public function toEditEvent($id)
 	{
-		return $this->route('index');
+		return $this->route('editEventPage', array('id' => $id));
 	}
 
-	public function toReview()
+	private function route($routeName, $params = array())
 	{
-		return $this->route('review');
-	}
-
-	public function toBuy()
-	{
-		return $this->route('buy');
-	}
-
-	private function route($routeName)
-	{
-		return Redirect::route($routeName);
+		return Redirect::route($routeName, $params);
 	}
 }

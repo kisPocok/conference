@@ -21,3 +21,9 @@ Route::get('/api/presenter/{id}',            array('uses' => 'PresenterControlle
 Route::get('/api/location/{id}',             array('uses' => 'LocationController@get',               'as' => 'apiGetLocation'))->where('id', '[0-9]+');
 Route::get('/api/map/{id}',                  array('uses' => 'MapController@get',                    'as' => 'apiGetMap'))->where('id', '[0-9]+');
 
+
+Route::get('/admin/events',                  array('uses' => 'HomeController@listEvents',             'as' => 'eventList'));
+Route::get('/admin/event',                   array('uses' => 'HomeController@createEvent',            'as' => 'createEventPage'));
+Route::get('/admin/event/{id}',              array('uses' => 'HomeController@editEvent',              'as' => 'editEventPage'));
+Route::post('/admin/event',                  array('uses' => 'HomeController@saveEvent',              'as' => 'createEvent'));
+Route::post('/admin/event/{id}',             array('uses' => 'HomeController@saveEvent',              'as' => 'saveEvent'));

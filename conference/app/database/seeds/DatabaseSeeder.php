@@ -185,7 +185,7 @@ class MapTableSeeder extends Seeder
 
 		$sampleData = array(
 			'id' => 2,
-			'conference_id' => 2,
+			'conference_id' => 1,
 			'title' => 'Bálna 2. emelete',
 			'map_image_url' => 'http://www.balnabudapest.hu/map/2em.png',
 		);
@@ -193,6 +193,30 @@ class MapTableSeeder extends Seeder
 
 		$sampleData = array(
 			'id' => 3,
+			'conference_id' => 1,
+			'title' => 'Bálna 3. emelete',
+			'map_image_url' => 'http://www.balnabudapest.hu/map/3em.png',
+		);
+		Map::create($sampleData);
+
+		$sampleData = array(
+			'id' => 4,
+			'conference_id' => 1,
+			'title' => 'Bálna 1. emelete',
+			'map_image_url' => 'http://www.balnabudapest.hu/map/1em.png'
+		);
+		Map::create($sampleData);
+
+		$sampleData = array(
+			'id' => 5,
+			'conference_id' => 2,
+			'title' => 'Bálna 2. emelete',
+			'map_image_url' => 'http://www.balnabudapest.hu/map/2em.png',
+		);
+		Map::create($sampleData);
+
+		$sampleData = array(
+			'id' => 6,
 			'conference_id' => 2,
 			'title' => 'Bálna 3. emelete',
 			'map_image_url' => 'http://www.balnabudapest.hu/map/3em.png',

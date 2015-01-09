@@ -27,6 +27,7 @@ class CreateEventTable extends Migration {
 			$table->integer('location')->nullable();
 			$table->integer('presenter')->nullable();
 			$table->integer('video_id')->nullable();
+			$table->string('slides_url', 255)->nullable();
 			$table->dateTime('start_date');
 			$table->dateTime('end_date');
 			$table->timestamps();
