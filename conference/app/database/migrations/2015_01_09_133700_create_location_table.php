@@ -20,7 +20,6 @@ class CreateLocationTable extends Migration {
 		Schema::create('location', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('meta_id');
 			$table->string('title', 255);
 			$table->text('description')->nullable();
 			$table->string('map_image_url', 255)->nullable();
@@ -28,7 +27,6 @@ class CreateLocationTable extends Migration {
 			$table->timestamps();
 
 			$table->index('title');
-			$table->index('meta_id');
 		});
 
 	}

@@ -14,6 +14,10 @@ class PresenterController extends BaseApiController
 		$this->redirect = $redirect;
 	}
 
+	/**
+	 * @param int $id
+	 * @return mixed
+	 */
 	public function get($id)
 	{
 		try {

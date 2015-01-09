@@ -1,13 +1,13 @@
 <?php
 
-class Events extends Eloquent
+class Conference extends Eloquent
 {
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'event';
+	protected $table = 'meta';
 
 	/**
 	 * This attributes may not be mass assigned.
@@ -32,17 +32,13 @@ class Events extends Eloquent
 		$startTime = strtotime($this->start_date);
 		$endTime = strtotime($this->end_date);
 		return array(
-			'eventId'         => $this->id,
-			'conferenceId'    => $this->meta_id,
-			'title'           => $this->title,
-			'description'     => $this->description,
-			'imageUrl'        => $this->image_url,
-			'locationId'      => $this->location,
-			'presenterId'     => $this->presenter,
-			'videoId'         => $this->video_id,
-			'startDateTime'   => $startTime,
-			'endDateTime'     => $endTime,
-			'lengthInSeconds' => $endTime - $startTime,
+			'conferenceId'       => $this->id,
+			'title'              => $this->title,
+			'backgroundImageUrl' => $this->background_image_url,
+			'colorSchema'        => $this->color_schema,
+			'startDateTime'      => $startTime,
+			'endDateTime'        => $endTime,
+			'lengthInSeconds'    => $endTime - $startTime,
 		);
 	}
 }

@@ -3,7 +3,7 @@
 use App\Repositories\RedirectRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class ConferenceController extends BaseApiController
+class LocationController extends BaseApiController
 {
 	/**
 	 * Instantiate a new UserController instance.
@@ -14,13 +14,17 @@ class ConferenceController extends BaseApiController
 		$this->redirect = $redirect;
 	}
 
+	/**
+	 * @param int $id
+	 * @return mixed
+	 */
 	public function get($id)
 	{
 		try {
-			$data = Conference::findOrFail($id);
+			$data = Location::findOrFail($id);
 			return $this->response($data->toArray());
 		} catch (ModelNotFoundException $e) {
-			return $this->fail('Value ' . $id . ' is invalid for meta id');
+			return $this->fail('Value ' . $id . ' is invalid for location id');
 		} catch (\Exception $e) {
 			return $this->fail('Error happened', 500);
 		}

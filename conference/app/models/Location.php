@@ -1,13 +1,13 @@
 <?php
 
-class Meta extends Eloquent
+class Location extends Eloquent
 {
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'meta';
+	protected $table = 'location';
 
 	/**
 	 * This attributes may not be mass assigned.
@@ -29,15 +29,12 @@ class Meta extends Eloquent
 	 */
 	public function toArray()
 	{
-		$startTime = strtotime($this->start_date);
-		$endTime = strtotime($this->end_date);
 		return array(
-			'title'              => $this->title,
-			'backgroundImageUrl' => $this->background_image_url,
-			'colorSchema'        => $this->color_schema,
-			'startDateTime'      => $startTime,
-			'endDateTime'        => $endTime,
-			'lengthInSeconds'    => $endTime - $startTime,
+			'locationId'  => $this->id,
+			'title'       => $this->title,
+			'description' => $this->description,
+			'mapImageUrl' => $this->map_image_url,
+			'channelId'   => $this->channel_id,
 		);
 	}
 }

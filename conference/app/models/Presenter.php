@@ -30,6 +30,7 @@ class Presenter extends Eloquent
 	public function toArray()
 	{
 		return array(
+			'presenterId'         => $this->id,
 			'name'                => $this->name,
 			'description'         => $this->description,
 			'imageUrl'            => $this->image_url,
