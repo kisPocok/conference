@@ -36,6 +36,7 @@ class Conference extends Eloquent
 			'title'              => $this->title,
 			'description'        => $this->description,
 			'backgroundImageUrl' => $this->background_image_url,
+			'thumbnailImageUrl'  => $this->thumbnail_image_url,
 			'colorSchema'        => $this->color_schema,
 			'startDateTime'      => $startTime,
 			'endDateTime'        => $endTime,

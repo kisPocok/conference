@@ -33,6 +33,7 @@ class MetaTableSeeder extends Seeder
 			'id' => 1,
 			'title' => 'Craft-Conf',
 			'background_image_url' => null,
+			'thumbnail_image_url' => null,
 			'color_schema' => 'light',
 			'start_date' => date("Y-m-d H:i:s", strtotime('NOW +1 HOURS')),
 			'end_date' => date("Y-m-d H:i:s", strtotime('NOW +7 HOURS'))
@@ -43,6 +44,7 @@ class MetaTableSeeder extends Seeder
 			'id' => 2,
 			'title' => 'Sziget fesztivál',
 			'background_image_url' => null,
+			'thumbnail_image_url' => null,
 			'color_schema' => 'light',
 			'start_date' => date("Y-m-d H:i:s", strtotime('NOW +1 HOURS')),
 			'end_date' => date("Y-m-d H:i:s", strtotime('NOW +7 HOURS'))
